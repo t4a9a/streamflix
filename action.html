@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home | StreamFlix</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .navbar, footer {
+      background-color: #1c1c1c;
+    }
+    .card {
+      background-color: #1e1e1e;
+      border: none;
+      color: #fff;
+      height: 100%;
+      transition: transform 0.2s ease-in-out;
+      width: 100%;
+      max-width: 100%;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .card-img-top {
+      height: 100%;
+      object-fit: cover;
+    }
+    .card-body {
+      height: auto;
+    }
+    .watch-btn {
+      margin-top: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark px-4">
+    <a class="navbar-brand" href="index.html">StreamFlix</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto me-3">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="movies.html">All Movies</a></li>
+        <li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      </ul>
+      <form class="d-flex" id="searchForm">
+        <input class="form-control me-2" type="search" placeholder="Search movies" aria-label="Search" id="searchInput">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="container my-5">
+    <h2>Action Movies</h2>
+    <div class="row mt-4" id="movieContainer">
+      <div class="col-md-4 mb-4 movie-card">
+        <div class="card h-100">
+          <img src="poster/mi.png" class="card-img-top" alt="Movie">
+          <div class="card-body">
+            <h5 class="card-title">Mission: Impossible (2025)</h5>
+            <p class="card-text">Our lives are the sum of our choices. Tom Cruise is Ethan Hunt in Mission: Impossible 
+
+            </p>
+            <a class="btn btn-primary watch-btn" href="play.html?video=video/mi.mp4">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4 movie-card">
+        <div class="card h-100">
+          <img src="poster/captionAmerica.png" class="card-img-top" alt="Movie">
+          <div class="card-body">
+            <h5 class="card-title">Captain America (2025)</h5>
+            <p class="card-text">Sam Wilson, the new Captain America, finds himself in the middle of an international incident </p>
+            <a class="btn btn-primary watch-btn" href="play.html?video=video/captionAmerica.mp4">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4 movie-card">
+        <div class="card h-100">
+          <img src="poster/inception.png" class="card-img-top" alt="Movie">
+          <div class="card-body">
+            <h5 class="card-title">Inception (2010)</h5>
+            <p class="card-text">A thief who steals corporate secrets through the use of dream-sharing technology is given</p>
+            <a class="btn btn-primary watch-btn" href="play.html?video=video/inception.mp4">Watch Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4 movie-card">
+        <div class="card h-100">
+          <img src="poster/deadpool.png" class="card-img-top" alt="Movie">
+          <div class="card-body">
+            <h5 class="card-title">Deadpool & Wolverine (2024)</h5>
+            <p class="card-text">Deadpool is offered a place in the Marvel Cinematic Universe by the Time Variance Authority.</p>
+            <a class="btn btn-primary watch-btn" href="play.html?video=video/deadpool.mp4">Watch Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>&copy; 2025 StreamFlix. All rights reserved.</footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('searchForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const movieCards = document.querySelectorAll('.movie-card');
+      movieCards.forEach(card => {
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        card.style.display = title.includes(query) ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
